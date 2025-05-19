@@ -37,6 +37,8 @@ import {
   initRouterMode,
 } from './sandbox/router'
 
+const SECONDARY_CONTAINER_ATTRIBUTE = 'secondary-container'
+
 /**
  * define element
  * @param tagName element name
@@ -45,6 +47,10 @@ export function defineElement (tagName: string): void {
   class MicroAppElement extends HTMLElement implements MicroAppElementInterface {
     static get observedAttributes (): string[] {
       return ['name', 'url']
+    }
+
+    static get SECONDARY_CONTAINER_ATTRIBUTE (): string {
+      return SECONDARY_CONTAINER_ATTRIBUTE
     }
 
     private isWaiting = false
@@ -68,6 +74,8 @@ export function defineElement (tagName: string): void {
     // keep-alive: open keep-alive mode
 
     public connectedCallback (): void {
+      if (this.hasAttribute(SECONDARY_CONTAINER_ATTRIBUTE)) return
+
       /**
        * In FireFox, iframe Node.prototype will point to native Node.prototype after insert to document
        * If <micro-app>.prototype is not MicroAppElement.prototype, we should reset it
@@ -100,6 +108,8 @@ export function defineElement (tagName: string): void {
     }
 
     public disconnectedCallback (): void {
+      if (this.hasAttribute(SECONDARY_CONTAINER_ATTRIBUTE)) return
+
       this.connectStateMap.set(this.connectedCount, false)
       this.handleDisconnected()
     }
@@ -140,6 +150,9 @@ export function defineElement (tagName: string): void {
     }
 
     public attributeChangedCallback (attr: ObservedAttrName, _oldVal: string, newVal: string): void {
+      if ((attr as string) === SECONDARY_CONTAINER_ATTRIBUTE) return
+      if (this.hasAttribute(SECONDARY_CONTAINER_ATTRIBUTE)) return
+
       if (
         this.legalAttribute(attr, newVal) &&
         this[attr === ObservedAttrName.NAME ? 'appName' : 'appUrl'] !== newVal
@@ -194,6 +207,8 @@ export function defineElement (tagName: string): void {
      * first mount of this app
      */
     private handleConnected (): void {
+      if (this.hasAttribute(SECONDARY_CONTAINER_ATTRIBUTE)) return
+
       if (!this.appName || !this.appUrl) return
 
       if (this.getDisposeResult('shadowDOM') && !this.shadowRoot && isFunction(this.attachShadow)) {
