@@ -1458,9 +1458,9 @@
   integrity sha1-fyrX7FX5FEgvybHsS7GuYCjUYGY=
 
 "@types/node@*":
-  version "24.0.10"
-  resolved "http://npm.classup.info/@types/node/download/@types/node-24.0.10.tgz#f65a169779bf0d70203183a1890be7bee8ca2ddb"
-  integrity sha1-9loWl3m/DXAgMYOhiQvnvujKLds=
+  version "24.0.13"
+  resolved "http://npm.classup.info/@types/node/download/@types/node-24.0.13.tgz#93ed8c05c7b188a59760be0ce2ee3fa7ad0f83f6"
+  integrity sha1-k+2MBcexiKWXYL4M4u4/p60Pg/Y=
   dependencies:
     undici-types "~7.8.0"
 
@@ -2118,7 +2118,7 @@ browser-process-hrtime@^1.0.0:
   resolved "http://npm.classup.info/browser-process-hrtime/download/browser-process-hrtime-1.0.0.tgz#3c9b4b7d782c8121e56f10106d84c0d0ffc94626"
   integrity sha1-PJtLfXgsgSHlbxAQbYTA0P/JRiY=
 
-browserslist@^4.24.0, browserslist@^4.25.0:
+browserslist@^4.24.0, browserslist@^4.25.1:
   version "4.25.1"
   resolved "http://npm.classup.info/browserslist/download/browserslist-4.25.1.tgz#ba9e8e6f298a1d86f829c9b975e07948967bb111"
   integrity sha1-up6ObymKHYb4Kcm5deB5SJZ7sRE=
@@ -2565,16 +2565,16 @@ copy-descriptor@^0.1.0:
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
 core-js-compat@^3.8.0:
-  version "3.43.0"
-  resolved "http://npm.classup.info/core-js-compat/download/core-js-compat-3.43.0.tgz#055587369c458795ef316f65e0aabb808fb15840"
-  integrity sha1-BVWHNpxFh5XvMW9l4Kq7gI+xWEA=
+  version "3.44.0"
+  resolved "http://npm.classup.info/core-js-compat/download/core-js-compat-3.44.0.tgz#62b9165b97e4cbdb8bca16b14818e67428b4a0f8"
+  integrity sha1-YrkWW5fky9uLyhaxSBjmdCi0oPg=
   dependencies:
-    browserslist "^4.25.0"
+    browserslist "^4.25.1"
 
 core-js@^3.6.1:
-  version "3.43.0"
-  resolved "http://npm.classup.info/core-js/download/core-js-3.43.0.tgz#f7258b156523208167df35dea0cfd6b6ecd4ee88"
-  integrity sha1-9yWLFWUjIIFn3zXeoM/WtuzU7og=
+  version "3.44.0"
+  resolved "http://npm.classup.info/core-js/download/core-js-3.44.0.tgz#db4fd4fa07933c1d6898c8b112a1119a9336e959"
+  integrity sha1-20/U+geTPB1omMixEqERmpM26Vk=
 
 core-util-is@1.0.2:
   version "1.0.2"
@@ -3011,9 +3011,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.5.173:
-  version "1.5.179"
-  resolved "http://npm.classup.info/electron-to-chromium/download/electron-to-chromium-1.5.179.tgz#453d53f360014a2604d40ccd41c4ea0a6e31b99a"
-  integrity sha1-RT1T82ABSiYE1AzNQcTqCm4xuZo=
+  version "1.5.180"
+  resolved "http://npm.classup.info/electron-to-chromium/download/electron-to-chromium-1.5.180.tgz#3e4f6e7494d6371e014af176dfdfd43c8a4b56df"
+  integrity sha1-Pk9udJTWNx4BSvF239/UPIpLVt8=
 
 emittery@^0.7.1:
   version "0.7.2"

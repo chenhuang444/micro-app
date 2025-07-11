@@ -190,6 +190,7 @@ declare module '@micro-app/types' {
     isPrerender: boolean
     isReloading?: boolean
     prefetchLevel?: number
+    mountIdentifier?: symbol // used to identify if the app has been unmounted between async calls
     // defaultPage: string // default page when mount
     // baseroute: string // route prefix, default is ''
     // hiddenRouter: boolean // hide router info of child from browser url
@@ -369,7 +370,9 @@ declare module '@micro-app/types' {
     getRootElementParentNode?: (node: Node, appName: AppName) => void
     customProxyDocumentProps?: Map<string | number | symbol, (value: unknown) => void>
     aHrefResolver?: (hrefValue: string, appName: string, appUrl: string) => string
-    inheritBaseBody?:boolean
+    inheritBaseBody?:boolean,
+    escapeIframeWindowEvents? : Array<string>,
+    disableIframeRootDocument?: boolean,
   }
 
   // MicroApp config

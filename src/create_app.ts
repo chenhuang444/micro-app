@@ -79,6 +79,7 @@ export default class CreateApp implements AppInterface {
   public isPrefetch: boolean
   public isPrerender: boolean
   public prefetchLevel?: number
+  public mountIdentifier?: symbol
   public fiber = false
   public routerMode: string
   public attrs?: Record<string, string>
@@ -288,6 +289,7 @@ export default class CreateApp implements AppInterface {
         this.routerMode = routerMode
 
         const dispatchBeforeMount = () => {
+          this.mountIdentifier = Symbol('mountIdentifier')
           dispatchLifecyclesEvent(
             this.container,
             this.name,
@@ -494,6 +496,8 @@ export default class CreateApp implements AppInterface {
     unmountcb?: CallableFunction,
     umdHookUnmountResult?: unknown,
   ): void {
+    this.mountIdentifier = undefined
+
     // dispatch state event to micro app
     dispatchCustomEventToMicroApp(this, 'statechange', {
       appState: appStates.UNMOUNT
