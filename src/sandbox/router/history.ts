@@ -97,6 +97,11 @@ export function clearPureHistory(appName: string): void {
   delete pureHistoryStack[appName]
 }
 
+function getPureHistoryState(appName: string): MicroState {
+  const history = pureHistoryStack[appName]
+  return history?.stack?.[history.currentIndex]?.state || null
+}
+
 /**
  * create proxyHistory for microApp
  * MDN https://developer.mozilla.org/en-US/docs/Web/API/History
@@ -179,7 +184,11 @@ export function createMicroHistory(appName: string, microLocation: MicroLocation
       if (key === 'pushState' || key === 'replaceState') {
         return originalHistory[key]
       } else if (key === 'state') {
-        return getMicroState(appName)
+        if (!isRouterModePure(appName)) {
+          return getMicroState(appName)
+        } else {
+          return getPureHistoryState(appName)
+        }
       }
       return bindFunctionToRawTarget<History, HistoryProxyValue>(Reflect.get(target, key), target, 'HISTORY')
     },
